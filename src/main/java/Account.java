@@ -17,6 +17,10 @@ public abstract class Account {
 		return apr;
 	}
 
+	public String getId() {
+		return id;
+	}
+
 	public void depositMoney(double amount) {
 		balance += amount;
 	}
