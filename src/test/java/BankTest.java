@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class bank_test {
+public class BankTest {
 	public static final String ID = "00000000";
 	Bank bank;
 	Checkings checkings;
