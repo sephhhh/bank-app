@@ -17,6 +17,11 @@ public class AccountTest {
 	}
 
 	@Test
+	void create_bank_account_with_apr() {
+		assertEquals(0.3, savings.getApr());
+	}
+
+	@Test
 	void deposit_money_by_id() {
 		bank.addAccount(checkings);
 		bank.depositMoneyById(ID, 100.0);
