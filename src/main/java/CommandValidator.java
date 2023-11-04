@@ -13,7 +13,7 @@ public class CommandValidator {
 
 	public boolean validateId(String command) {
 		String[] commandArguments = command.split(" ");
-		if ((commandArguments[1]) instanceof String) {
+		if (!commandArguments[1].matches("[0-9]+")) {
 			return false;
 		} else {
 			if (commandArguments[1].length() < 8) {
