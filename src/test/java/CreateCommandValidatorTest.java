@@ -22,19 +22,38 @@ public class CreateCommandValidatorTest {
 
 	@Test
 	void createValidCDWithDoubleAsBalance() {
-		boolean actual = createCommandValidator.validate("create CD 13245678 0.3 1000.0");
+		boolean actual = createCommandValidator.validate("create cd 13245678 0.3 1000.0");
 		assertTrue(actual);
 	}
 
 	@Test
 	void createValidCDWithIntAsBalance() {
-		boolean actual = createCommandValidator.validate("create CD 13245678 0.3 1000");
+		boolean actual = createCommandValidator.validate("create cd 13245678 0.3 1000");
 		assertTrue(actual);
 	}
 
 	@Test
 	void createValidSavings() {
 		boolean actual = createCommandValidator.validate("create savings 13245678 0.3");
+		assertTrue(actual);
+	}
+
+//
+	@Test
+	void createValidCheckingCaseInsensitive() {
+		boolean actual = createCommandValidator.validate("cReAte cHeCkIng 13245678 0.3");
+		assertTrue(actual);
+	}
+
+	@Test
+	void createValidSavingsCaseInsensitive() {
+		boolean actual = createCommandValidator.validate("cReAtE SaViNgs 13245678 0.3");
+		assertTrue(actual);
+	}
+
+	@Test
+	void createValidCDCaseInsensitive() {
+		boolean actual = createCommandValidator.validate("cReAtE cD 13245678 0.3 1000.0");
 		assertTrue(actual);
 	}
 
@@ -52,7 +71,7 @@ public class CreateCommandValidatorTest {
 
 	@Test
 	void createCDWithNoArguments() {
-		boolean actual = createCommandValidator.validate("create CD");
+		boolean actual = createCommandValidator.validate("create cd");
 		assertFalse(actual);
 	}
 
@@ -106,43 +125,43 @@ public class CreateCommandValidatorTest {
 
 	@Test
 	void createCDWithoutCreateCommand() {
-		boolean actual = createCommandValidator.validate("CD 12345678 0.3");
+		boolean actual = createCommandValidator.validate("cd 12345678 0.3");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createCDWithTooManyArguments() {
-		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 1000.0 1234");
+		boolean actual = createCommandValidator.validate("create cd 12345678 0.3 1000.0 1234");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createCDWithoutAprAndBalance() {
-		boolean actual = createCommandValidator.validate("create CD 12345678");
+		boolean actual = createCommandValidator.validate("create cd 12345678");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createCDWithBalanceOverTenThousand() {
-		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 100000.0");
+		boolean actual = createCommandValidator.validate("create cd 12345678 0.3 100000.0");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createCDWithBalanceUnderOneThousand() {
-		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 100.0");
+		boolean actual = createCommandValidator.validate("create cd 12345678 0.3 100.0");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createCDWithBalanceAsLetter() {
-		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 abc");
+		boolean actual = createCommandValidator.validate("create cd 12345678 0.3 abc");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createCDWithoutBalance() {
-		boolean actual = createCommandValidator.validate("create CD 12345678 0.3");
+		boolean actual = createCommandValidator.validate("create cd 12345678 0.3");
 		assertFalse(actual);
 	}
 
@@ -198,7 +217,7 @@ public class CreateCommandValidatorTest {
 	void createCDWithExistingIdAnotherCD() {
 		CertificateOfDeposit cd = new CertificateOfDeposit(0.3, 1000.0, "12345678");
 		bank.addAccount(cd);
-		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 1000.0");
+		boolean actual = createCommandValidator.validate("create cd 12345678 0.3 1000.0");
 		assertFalse(actual);
 	}
 
@@ -206,7 +225,7 @@ public class CreateCommandValidatorTest {
 	void createCDWithExistingIdAnotherChecking() {
 		Checkings checking = new Checkings(0.3, "12345678");
 		bank.addAccount(checking);
-		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 1000.0");
+		boolean actual = createCommandValidator.validate("create cd 12345678 0.3 1000.0");
 		assertFalse(actual);
 	}
 
@@ -214,13 +233,13 @@ public class CreateCommandValidatorTest {
 	void createCDWithExistingIdAnotherSavings() {
 		Savings savings = new Savings(0.3, "12345678");
 		bank.addAccount(savings);
-		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 1000.0");
+		boolean actual = createCommandValidator.validate("create cd 12345678 0.3 1000.0");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createCDWithNegativeBalance() {
-		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 -1.0");
+		boolean actual = createCommandValidator.validate("create cd 12345678 0.3 -1.0");
 		assertFalse(actual);
 	}
 

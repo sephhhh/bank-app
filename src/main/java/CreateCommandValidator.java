@@ -11,7 +11,7 @@ public class CreateCommandValidator extends CommandValidator {
 		if (commandArguments.length == 1) {
 			return false;
 		}
-		switch (commandArguments[1]) {
+		switch (commandArguments[1].toLowerCase()) {
 		case ("checking"):
 		case ("savings"):
 			if (commandArguments.length != 4) {
@@ -21,7 +21,7 @@ public class CreateCommandValidator extends CommandValidator {
 			} else {
 				return true;
 			}
-		case ("CD"):
+		case ("cd"):
 			if (commandArguments.length != 5) {
 				return false;
 			} else if (commandArguments[3] == null || commandArguments[4] == null) {
