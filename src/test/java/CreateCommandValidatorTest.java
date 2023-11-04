@@ -48,4 +48,10 @@ public class CreateCommandValidatorTest {
 		boolean actual = createCommandValidator.validate("create savings 12345678 0.3 1000.0");
 		assertFalse(actual);
 	}
+
+	@Test
+	void createMistypedChecking() {
+		boolean actual = createCommandValidator.validate("create check 12345678 0.3");
+		assertFalse(actual);
+	}
 }

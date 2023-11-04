@@ -27,7 +27,8 @@ public class CreateCommandValidator {
 			if (commandArguments.length != 5) {
 				return false;
 			}
+		default:
+			return false;
 		}
-		return true;
 	}
 }
