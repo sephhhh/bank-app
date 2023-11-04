@@ -16,6 +16,8 @@ public class CreateCommandValidator extends CommandValidator {
 		case ("savings"):
 			if (commandArguments.length != 4) {
 				return false;
+			} else if (bank.getAccountById(commandArguments[2]) != null) {
+				return false;
 			} else {
 				return true;
 			}

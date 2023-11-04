@@ -146,4 +146,11 @@ public class CreateCommandValidatorTest {
 		assertFalse(actual);
 	}
 
+	@Test
+	void createCheckingWithExistingIdAndApr() {
+		Checkings checking = new Checkings(0.3, "12345678");
+		bank.addAccount(checking);
+		boolean actual = createCommandValidator.validate("create checking 12345678 0.3");
+		assertFalse(actual);
+	}
 }
