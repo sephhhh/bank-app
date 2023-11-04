@@ -13,13 +13,17 @@ public class CommandValidator {
 
 	public boolean validateId(String command) {
 		String[] commandArguments = command.split(" ");
-		if (commandArguments[1].length() < 8) {
-			return false;
-		} else if (commandArguments[1].length() > 8) {
+		if ((commandArguments[1]) instanceof String) {
 			return false;
 		} else {
-			return true;
+			if (commandArguments[1].length() < 8) {
+				return false;
+			} else if (commandArguments[1].length() > 8) {
+				return false;
+			} else {
+				return true;
+			}
 		}
-
 	}
+
 }
