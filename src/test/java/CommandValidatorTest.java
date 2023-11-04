@@ -55,4 +55,10 @@ public class CommandValidatorTest {
 		boolean actual = commandValidator.validate("create savings 12345678 30.0");
 		assertFalse(actual);
 	}
+
+	@Test
+	void createAccWithNoApr() {
+		boolean actual = commandValidator.validate("create savings 12345678");
+		assertFalse(actual);
+	}
 }

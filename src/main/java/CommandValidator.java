@@ -20,7 +20,9 @@ public class CommandValidator {
 				return false;
 			}
 		}
-		if (Double.parseDouble(commandArguments[3]) < 0.0) {
+		if (commandArguments.length <= 3 || commandArguments[3] == null) {
+			return false;
+		} else if (Double.parseDouble(commandArguments[3]) < 0.0) {
 			return false;
 		} else if (Double.parseDouble(commandArguments[3]) > 10.0) {
 			return false;
