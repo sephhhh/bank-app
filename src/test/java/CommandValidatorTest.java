@@ -70,4 +70,10 @@ public class CommandValidatorTest {
 		assertFalse(actual);
 	}
 
+	@Test
+	void createAccWithNonNumbers() {
+		boolean actual = commandValidator.validate("create savings 12345678 abc");
+		assertFalse(actual);
+	}
+
 }

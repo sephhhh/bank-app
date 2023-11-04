@@ -1,5 +1,4 @@
 public class CommandValidator {
-
 	private Bank bank;
 
 	public CommandValidator(Bank bank) {
@@ -23,8 +22,20 @@ public class CommandValidator {
 			return false;
 		} else if (Double.parseDouble(commandArguments[3]) > 10.0) {
 			return false;
+		} else if (!canConvertToDouble(commandArguments[3])) {
+			return false;
 		}
+
 		return true;
+	}
+
+	public boolean canConvertToDouble(String command) {
+		try {
+			Double.parseDouble(command);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
 	}
 
 }
