@@ -34,23 +34,30 @@ public class DepositCommandValidatorTest {
 	}
 
 	@Test
-	void DepositOverOneThousandInSavings() {
+	void DepositBalanceOverOneThousandInSavings() {
 		bank.addAccount(savings);
 		boolean actual = depositCommandValidator.validate("Deposit 12345678 3000.0");
 		assertFalse(actual);
 	}
 
 	@Test
-	void DepositUnderZeroInSavings() {
+	void DepositBalanceUnderZeroInSavings() {
 		bank.addAccount(savings);
 		boolean actual = depositCommandValidator.validate("Deposit 12345678 -1.0");
 		assertFalse(actual);
 	}
 
 	@Test
-	void DepositWithLettersInSavings() {
+	void DepositWithBalanceAsLettersInSavings() {
 		bank.addAccount(savings);
 		boolean actual = depositCommandValidator.validate("Deposit 12345678 abc");
+		assertFalse(actual);
+	}
+
+	@Test
+	void DepositWithoutBalanceInSavings() {
+		bank.addAccount(savings);
+		boolean actual = depositCommandValidator.validate("Deposit 12345678");
 		assertFalse(actual);
 	}
 }

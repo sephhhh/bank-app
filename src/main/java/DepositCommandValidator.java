@@ -14,7 +14,7 @@ public class DepositCommandValidator extends CommandValidator {
 				return false;
 			}
 		} else if ("savings".equals(account.getAccountType())) {
-			if (commandArguments.length > 3) {
+			if (commandArguments.length != 3) {
 				return false;
 			} else if (!canConvertToDouble(commandArguments[2])) {
 				return false;
