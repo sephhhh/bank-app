@@ -217,4 +217,5 @@ public class CreateCommandValidatorTest {
 		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 1000.0");
 		assertFalse(actual);
 	}
+
 }

@@ -2,11 +2,13 @@ public abstract class Account {
 	double balance;
 	double apr;
 	String id;
+	String accountType;
 
-	public Account(double apr, double balance, String id) {
+	public Account(double apr, double balance, String id, String accountType) {
 		this.apr = apr;
 		this.balance = balance;
 		this.id = id;
+		this.accountType = accountType;
 	}
 
 	public Double getBalance() {
@@ -32,4 +34,9 @@ public abstract class Account {
 			balance -= amount;
 		}
 	}
+
+	public String getAccountType() {
+		return accountType;
+	}
+
 }
