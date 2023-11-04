@@ -36,4 +36,16 @@ public class CreateCommandValidatorTest {
 		boolean actual = createCommandValidator.validate("create");
 		assertFalse(actual);
 	}
+
+	@Test
+	void createCheckingWithBalance() {
+		boolean actual = createCommandValidator.validate("create checking 12345678 0.3 1000.0");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createSavingsWithBalance() {
+		boolean actual = createCommandValidator.validate("create savings 12345678 0.3 1000.0");
+		assertFalse(actual);
+	}
 }

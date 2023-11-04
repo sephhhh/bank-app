@@ -14,9 +14,13 @@ public class CreateCommandValidator {
 		case ("checking"):
 			if (commandArguments.length != 4) {
 				return false;
+			} else if (commandArguments[5] != null) {
+				return false;
 			}
 		case ("savings"):
 			if (commandArguments.length != 4) {
+				return false;
+			} else if (commandArguments[5] != null) {
 				return false;
 			}
 		case ("CD"):
