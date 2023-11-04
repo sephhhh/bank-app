@@ -62,7 +62,7 @@ public class DepositCommandValidatorTest {
 	}
 
 	@Test
-	void DepositBalanceAsLetterAndIntsInSavings() {
+	void DepositBalanceAsLetterAndNumbersInSavings() {
 		bank.addAccount(savings);
 		boolean actual = depositCommandValidator.validate("Deposit 12345678 $50.0");
 		assertFalse(actual);
@@ -89,7 +89,6 @@ public class DepositCommandValidatorTest {
 		assertFalse(actual);
 	}
 
-//
 	@Test
 	void DepositOver2500AsBalanceInChecking() {
 		bank.addAccount(checking);
@@ -115,6 +114,28 @@ public class DepositCommandValidatorTest {
 	void DepositWithoutBalanceInChecking() {
 		bank.addAccount(checking);
 		boolean actual = depositCommandValidator.validate("Deposit 12345678");
+		assertFalse(actual);
+	}
+
+	//
+	@Test
+	void DepositMixedWithLettersAndNumbersBalanceInChecking() {
+		bank.addAccount(checking);
+		boolean actual = depositCommandValidator.validate("Deposit 12345678 $50.0");
+		assertFalse(actual);
+	}
+
+	@Test
+	void DepositWithoutIdInChecking() {
+		bank.addAccount(checking);
+		boolean actual = depositCommandValidator.validate("Deposit 50.0");
+		assertFalse(actual);
+	}
+
+	@Test
+	void DepositWithoutFunctionInChecking() {
+		bank.addAccount(checking);
+		boolean actual = depositCommandValidator.validate("12345678 $50");
 		assertFalse(actual);
 	}
 }
