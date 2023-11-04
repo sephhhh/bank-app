@@ -24,7 +24,8 @@ public class CreateCommandValidator extends CommandValidator {
 				return false;
 			} else if (commandArguments[3] == null || commandArguments[4] == null) {
 				return false;
-			} else if (Double.parseDouble(commandArguments[4]) > 10000.0) {
+			} else if (Double.parseDouble(commandArguments[4]) > 10000.0
+					|| Double.parseDouble(commandArguments[4]) < 1000.0) {
 				return false;
 			} else {
 				return true;
