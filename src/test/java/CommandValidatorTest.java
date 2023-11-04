@@ -1,0 +1,34 @@
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class CommandValidatorTest {
+	Bank bank;
+	CommandValidator commandValidator;
+
+	@BeforeEach
+	void setUp() {
+		bank = new Bank();
+		commandValidator = new CommandValidator(bank);
+	}
+
+	@Test
+	void duplicateAcc() {
+		boolean actual = commandValidator.validate("create 12345678 savings");
+		assertTrue(actual);
+	}
+
+	@Test
+	void createAccWithInvalidIdLessThanEight() {
+		boolean actual = commandValidator.validateId("create 1234567 savings");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createAccWithInvalidIdMoreThanEight() {
+		boolean actual = commandValidator.validateId("create 123456789 savings");
+		assertFalse(actual);
+	}
+}
