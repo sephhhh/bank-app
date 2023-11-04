@@ -61,7 +61,6 @@ public class DepositCommandValidatorTest {
 		assertFalse(actual);
 	}
 
-//
 	@Test
 	void DepositBalanceAsLetterAndIntsInSavings() {
 		bank.addAccount(savings);
@@ -75,4 +74,26 @@ public class DepositCommandValidatorTest {
 		boolean actual = depositCommandValidator.validate("Deposit 50.0");
 		assertFalse(actual);
 	}
+
+	@Test
+	void DepositWithoutFunctionInSavings() {
+		bank.addAccount(savings);
+		boolean actual = depositCommandValidator.validate("12345678 50.0");
+		assertFalse(actual);
+	}
+
+	@Test
+	void DepositWithoutArgumentsInSavings() {
+		bank.addAccount(savings);
+		boolean actual = depositCommandValidator.validate("Deposit");
+		assertFalse(actual);
+	}
+
+	@Test
+	void DepositOver2500AsBalanceInChecking() {
+		bank.addAccount(checking);
+		boolean actual = depositCommandValidator.validate("Deposit 12345678 3000.0");
+		assertFalse(actual);
+	}
+
 }
