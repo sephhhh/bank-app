@@ -145,4 +145,18 @@ public class DepositCommandValidatorTest {
 		boolean actual = depositCommandValidator.validate("Deposit");
 		assertFalse(actual);
 	}
+
+	@Test
+	void DepositIntoCd() {
+		bank.addAccount(cd);
+		boolean actual = depositCommandValidator.validate("Deposit CD");
+		assertFalse(actual);
+	}
+
+	@Test
+	void DepositIntoCdWithBalance() {
+		bank.addAccount(cd);
+		boolean actual = depositCommandValidator.validate("Deposit CD 500.0");
+		assertFalse(actual);
+	}
 }

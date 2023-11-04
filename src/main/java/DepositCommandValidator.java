@@ -30,7 +30,9 @@ public class DepositCommandValidator extends CommandValidator {
 				return false;
 			}
 		} else if ("CD".equals(account.getAccountType())) {
-
+			if (commandArguments.length > 0) {
+				return false;
+			}
 		}
 		return true;
 	}
