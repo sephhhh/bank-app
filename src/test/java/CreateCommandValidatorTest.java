@@ -38,7 +38,6 @@ public class CreateCommandValidatorTest {
 		assertTrue(actual);
 	}
 
-//
 	@Test
 	void createValidCheckingCaseInsensitive() {
 		boolean actual = createCommandValidator.validate("cReAte cHeCkIng 13245678 0.3");
@@ -132,6 +131,12 @@ public class CreateCommandValidatorTest {
 	@Test
 	void createCDWithTooManyArguments() {
 		boolean actual = createCommandValidator.validate("create cd 12345678 0.3 1000.0 1234");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createCDWithLittleArguments() {
+		boolean actual = createCommandValidator.validate("create cd 12345678 0.3");
 		assertFalse(actual);
 	}
 
