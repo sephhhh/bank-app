@@ -22,19 +22,19 @@ public class CommandValidatorTest {
 
 	@Test
 	void createAccIdWithInvalidIdLessThanEight() {
-		boolean actual = commandValidator.validateId("create 1234567 savings");
+		boolean actual = commandValidator.validate("create 1234567 savings");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createAccIdWithInvalidIdMoreThanEight() {
-		boolean actual = commandValidator.validateId("create 123456789 savings");
+		boolean actual = commandValidator.validate("create 123456789 savings");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createAccIdWithStrings() {
-		boolean actual = commandValidator.validateId("create abcdegh savings");
+		boolean actual = commandValidator.validate("create abcdegh savings");
 		assertFalse(actual);
 	}
 
