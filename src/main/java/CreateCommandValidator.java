@@ -31,6 +31,8 @@ public class CreateCommandValidator extends CommandValidator {
 			} else if (Double.parseDouble(commandArguments[4]) > 10000.0
 					|| Double.parseDouble(commandArguments[4]) < 1000.0) {
 				return false;
+			} else if (bank.getAccountById(commandArguments[2]) != null) {
+				return false;
 			} else {
 				return true;
 			}
