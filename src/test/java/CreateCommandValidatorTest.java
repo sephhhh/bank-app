@@ -128,4 +128,10 @@ public class CreateCommandValidatorTest {
 		assertFalse(actual);
 	}
 
+	@Test
+	void createCDWithBalanceAsLetter() {
+		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 abc");
+		assertFalse(actual);
+	}
+
 }
