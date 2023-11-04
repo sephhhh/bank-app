@@ -147,10 +147,34 @@ public class CreateCommandValidatorTest {
 	}
 
 	@Test
-	void createCheckingWithExistingIdAndApr() {
+	void createCheckingWithExistingIdAsAnotherChecking() {
 		Checkings checking = new Checkings(0.3, "12345678");
 		bank.addAccount(checking);
 		boolean actual = createCommandValidator.validate("create checking 12345678 0.3");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createCheckingWithExistingIdAnotherSavings() {
+		Savings savings = new Savings(0.3, "12345678");
+		bank.addAccount(savings);
+		boolean actual = createCommandValidator.validate("create checking 12345678 0.3");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createSavingsWithExistingIdWithAnotherSavings() {
+		Savings savings = new Savings(0.3, "12345678");
+		bank.addAccount(savings);
+		boolean actual = createCommandValidator.validate("create savings 12345678 0.3");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createSavingsWithExistingIdAnotherChecking() {
+		Checkings checking = new Checkings(0.3, "12345678");
+		bank.addAccount(checking);
+		boolean actual = createCommandValidator.validate("create savings 12345678 0.3");
 		assertFalse(actual);
 	}
 }
