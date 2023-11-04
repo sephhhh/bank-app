@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DepositCommandValidatorTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2023-11-04T19:31:17" hostname="Stevens-MacBook-Air-2.local" time="0.018">
+  <properties/>
+  <testcase name="DepositIntoCdWithBalance()" classname="DepositCommandValidatorTest" time="0.006"/>
+  <testcase name="DepositWithoutBalanceInSavings()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositWithoutIdInChecking()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositWithoutFunctionInChecking()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositWithoutIdInSavings()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositWithoutFunctionInSavings()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositUnderZeroAsBalanceInChecking()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositBalanceUnderZeroInSavings()" classname="DepositCommandValidatorTest" time="0.001"/>
+  <testcase name="ValidDepositIntoChecking()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositWithoutBalanceInChecking()" classname="DepositCommandValidatorTest" time="0.001"/>
+  <testcase name="DepositBalanceAsLetterAndNumbersInSavings()" classname="DepositCommandValidatorTest" time="0.001"/>
+  <testcase name="DepositingWithTwoArgumentsAsBalanceInSavings()" classname="DepositCommandValidatorTest" time="0.001"/>
+  <testcase name="TypoInDepositFunctionChecking()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositWithBalanceAsLettersInSavings()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositIntoCd()" classname="DepositCommandValidatorTest" time="0.001"/>
+  <testcase name="DepositOver2500AsBalanceInChecking()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositBalanceOverOneThousandInSavings()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositingWithTwoArgumentsAsBalanceInChecking()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositMixedWithLettersAndNumbersBalanceInChecking()" classname="DepositCommandValidatorTest" time="0.001"/>
+  <testcase name="DepositLettersAsBalanceInChecking()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositWithoutArgumentsInChecking()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <testcase name="DepositWithoutArgumentsInSavings()" classname="DepositCommandValidatorTest" time="0.001"/>
+  <testcase name="ValidDepositIntoSavings()" classname="DepositCommandValidatorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
