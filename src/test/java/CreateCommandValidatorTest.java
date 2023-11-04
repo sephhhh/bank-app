@@ -155,6 +155,14 @@ public class CreateCommandValidatorTest {
 	}
 
 	@Test
+	void createCheckingWithExistingIdAnotherCD() {
+		CertificateOfDeposit cd = new CertificateOfDeposit(0.3, 1000.0, "12345678");
+		bank.addAccount(cd);
+		boolean actual = createCommandValidator.validate("create checking 12345678 0.3");
+		assertFalse(actual);
+	}
+
+	@Test
 	void createCheckingWithExistingIdAnotherSavings() {
 		Savings savings = new Savings(0.3, "12345678");
 		bank.addAccount(savings);
@@ -175,6 +183,14 @@ public class CreateCommandValidatorTest {
 		Checkings checking = new Checkings(0.3, "12345678");
 		bank.addAccount(checking);
 		boolean actual = createCommandValidator.validate("create savings 12345678 0.3");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createSavingWithExistingIdAnotherCD() {
+		CertificateOfDeposit cd = new CertificateOfDeposit(0.3, 1000.0, "12345678");
+		bank.addAccount(cd);
+		boolean actual = createCommandValidator.validate("savings checking 12345678 0.3");
 		assertFalse(actual);
 	}
 }
