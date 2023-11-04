@@ -33,9 +33,14 @@ public class CommandValidatorTest {
 	}
 
 	@Test
-	void createAccIdWithStrings() {
-		boolean actual = commandValidator.validate("create abcdegh savings");
+	void createAccIdWithLetters() {
+		boolean actual = commandValidator.validate("create abcdeghj savings");
 		assertFalse(actual);
 	}
 
+	@Test
+	void createAccWithLettersAndNumbers() {
+		boolean actual = commandValidator.validate("create abcd1234 savings");
+		assertFalse(actual);
+	}
 }
