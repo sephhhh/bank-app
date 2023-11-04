@@ -160,7 +160,6 @@ public class DepositCommandValidatorTest {
 		assertFalse(actual);
 	}
 
-//
 	@Test
 	void ValidDepositIntoSavings() {
 		bank.addAccount(savings);
@@ -173,6 +172,13 @@ public class DepositCommandValidatorTest {
 		bank.addAccount(checking);
 		boolean actual = depositCommandValidator.validate("Deposit 12345678 50.0");
 		assertTrue(actual);
+	}
+
+	@Test
+	void TypoInDepositFunctionChecking() {
+		bank.addAccount(checking);
+		boolean actual = depositCommandValidator.validate("Depos 1234567 50.0");
+		assertFalse(actual);
 	}
 
 }
