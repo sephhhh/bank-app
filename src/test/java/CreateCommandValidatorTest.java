@@ -21,8 +21,14 @@ public class CreateCommandValidatorTest {
 	}
 
 	@Test
-	void createValidCD() {
+	void createValidCDWithDoubleAsBalance() {
 		boolean actual = createCommandValidator.validate("create CD 13245678 0.3 1000.0");
+		assertTrue(actual);
+	}
+
+	@Test
+	void createValidCDWithIntAsBalance() {
+		boolean actual = createCommandValidator.validate("create CD 13245678 0.3 1000");
 		assertTrue(actual);
 	}
 
