@@ -26,9 +26,12 @@ public class CreateCommandValidator {
 		case ("CD"):
 			if (commandArguments.length != 5) {
 				return false;
+			} else if (commandArguments[3] == null || commandArguments[4] == null) {
+				return false;
 			}
 		default:
 			return false;
 		}
+
 	}
 }

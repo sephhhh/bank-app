@@ -66,4 +66,35 @@ public class CreateCommandValidatorTest {
 		boolean actual = createCommandValidator.validate("create c 12345678 0.3");
 		assertFalse(actual);
 	}
+
+	@Test
+	void createCheckingWithoutCreateCommand() {
+		boolean actual = createCommandValidator.validate("checking 12345678 0.3");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createSavingsWithoutCreateCommand() {
+		boolean actual = createCommandValidator.validate("savings 12345678 0.3");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createCDWithoutCreateCommand() {
+		boolean actual = createCommandValidator.validate("CD 12345678 0.3");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createCDWithTooManyArguments() {
+		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 1000.0 1234");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createCDWithoutAprAndBalance() {
+		boolean actual = createCommandValidator.validate("create CD 12345678");
+		assertFalse(actual);
+	}
+
 }
