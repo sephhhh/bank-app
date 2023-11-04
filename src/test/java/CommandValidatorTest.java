@@ -16,31 +16,43 @@ public class CommandValidatorTest {
 
 	@Test
 	void duplicateAcc() {
-		boolean actual = commandValidator.validate("create 12345678 savings");
+		boolean actual = commandValidator.validate("create savings 12345678 0.3");
 		assertTrue(actual);
 	}
 
 	@Test
 	void createAccIdWithInvalidIdLessThanEight() {
-		boolean actual = commandValidator.validate("create 1234567 savings");
+		boolean actual = commandValidator.validate("create savings 1234567 0.3");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createAccIdWithInvalidIdMoreThanEight() {
-		boolean actual = commandValidator.validate("create 123456789 savings");
+		boolean actual = commandValidator.validate("create savings 123456789 0.3");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createAccIdWithLetters() {
-		boolean actual = commandValidator.validate("create abcdeghj savings");
+		boolean actual = commandValidator.validate("create savings abcdeghj 0.3");
 		assertFalse(actual);
 	}
 
 	@Test
 	void createAccWithLettersAndNumbers() {
-		boolean actual = commandValidator.validate("create abcd1234 savings");
+		boolean actual = commandValidator.validate("create savings abcd1234 0.3");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createAccWithAprLessThanZero() {
+		boolean actual = commandValidator.validate("create savings 12345678 -1.0");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createAccWithAprGreaterThanTen() {
+		boolean actual = commandValidator.validate("create savings 12345678 30.0");
 		assertFalse(actual);
 	}
 }

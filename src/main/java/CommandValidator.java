@@ -8,17 +8,22 @@ public class CommandValidator {
 
 	public boolean validate(String command) {
 		String[] commandArguments = command.split(" ");
-		if (bank.getAccountById(commandArguments[1]) != null) {
+		if (bank.getAccountById(commandArguments[2]) != null) {
 			return false;
 		}
-		if (!commandArguments[1].matches("[0-9]+")) {
+		if (!commandArguments[2].matches("[0-9]+")) {
 			return false;
 		} else {
-			if (commandArguments[1].length() < 8) {
+			if (commandArguments[2].length() < 8) {
 				return false;
-			} else if (commandArguments[1].length() > 8) {
+			} else if (commandArguments[2].length() > 8) {
 				return false;
 			}
+		}
+		if (Double.parseDouble(commandArguments[3]) < 0.0) {
+			return false;
+		} else if (Double.parseDouble(commandArguments[3]) > 10.0) {
+			return false;
 		}
 		return true;
 	}
