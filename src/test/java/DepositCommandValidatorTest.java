@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -138,7 +139,6 @@ public class DepositCommandValidatorTest {
 		assertFalse(actual);
 	}
 
-	//
 	@Test
 	void DepositWithoutArgumentsInChecking() {
 		bank.addAccount(checking);
@@ -159,4 +159,20 @@ public class DepositCommandValidatorTest {
 		boolean actual = depositCommandValidator.validate("Deposit CD 500.0");
 		assertFalse(actual);
 	}
+
+//
+	@Test
+	void ValidDepositIntoSavings() {
+		bank.addAccount(savings);
+		boolean actual = depositCommandValidator.validate("Deposit 12345678 50.0");
+		assertTrue(actual);
+	}
+
+	@Test
+	void ValidDepositIntoChecking() {
+		bank.addAccount(checking);
+		boolean actual = depositCommandValidator.validate("Deposit 12345678 50.0");
+		assertTrue(actual);
+	}
+
 }
