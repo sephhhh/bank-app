@@ -15,7 +15,9 @@ public class CommandValidatorTest {
 	}
 
 	@Test
-	void duplicateAcc() {
+	void addAccWithNonDuplicateId() {
+		Savings savings = new Savings(0.3, "00000000");
+		bank.addAccount(savings);
 		boolean actual = commandValidator.validate("create savings 12345678 0.3");
 		assertTrue(actual);
 	}
@@ -29,6 +31,12 @@ public class CommandValidatorTest {
 	@Test
 	void createAccIdWithInvalidIdMoreThanEight() {
 		boolean actual = commandValidator.validate("create savings 123456789 0.3");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createAccIdWithNoId() {
+		boolean actual = commandValidator.validate("create savings 0.3");
 		assertFalse(actual);
 	}
 
@@ -61,4 +69,5 @@ public class CommandValidatorTest {
 		boolean actual = commandValidator.validate("create savings 12345678");
 		assertFalse(actual);
 	}
+
 }
