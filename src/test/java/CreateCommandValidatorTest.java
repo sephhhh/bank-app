@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,18 @@ public class CreateCommandValidatorTest {
 	void setUp() {
 		bank = new Bank();
 		createCommandValidator = new CreateCommandValidator(bank);
+	}
+
+	@Test
+	void createValidChecking() {
+		boolean actual = createCommandValidator.validate("create checking 13245678 0.3");
+		assertTrue(actual);
+	}
+
+	@Test
+	void createValidSavings() {
+		boolean actual = createCommandValidator.validate("create savings 13245678 0.3");
+		assertTrue(actual);
 	}
 
 	@Test
@@ -94,6 +107,13 @@ public class CreateCommandValidatorTest {
 	@Test
 	void createCDWithoutAprAndBalance() {
 		boolean actual = createCommandValidator.validate("create CD 12345678");
+		assertFalse(actual);
+	}
+
+	//
+	@Test
+	void createCDWithBalanceOverTenThousand() {
+		boolean actual = createCommandValidator.validate("create CD 12345678 0.3 100000.0");
 		assertFalse(actual);
 	}
 

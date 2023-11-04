@@ -5,6 +5,9 @@ public class CommandValidator {
 		this.bank = bank;
 	}
 
+	public CommandValidator() {
+	}
+
 	public boolean validate(String command) {
 		String[] commandArguments = command.split(" ");
 		if (bank.getAccountById(commandArguments[2]) != null) {
