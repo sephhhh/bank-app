@@ -21,6 +21,12 @@ public class CreateCommandValidatorTest {
 	}
 
 	@Test
+	void createValidCD() {
+		boolean actual = createCommandValidator.validate("create CD 13245678 0.3 1000.0");
+		assertTrue(actual);
+	}
+
+	@Test
 	void createValidSavings() {
 		boolean actual = createCommandValidator.validate("create savings 13245678 0.3");
 		assertTrue(actual);

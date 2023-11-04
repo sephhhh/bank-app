@@ -26,6 +26,8 @@ public class CreateCommandValidator extends CommandValidator {
 				return false;
 			} else if (Double.parseDouble(commandArguments[4]) > 10000.0) {
 				return false;
+			} else {
+				return true;
 			}
 		default:
 			return false;
