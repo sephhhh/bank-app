@@ -18,6 +18,8 @@ public class CreateCommandValidator extends CommandValidator {
 				return false;
 			} else if (bank.getAccountById(commandArguments[2]) != null) {
 				return false;
+			} else if (commandArguments[2].length() != 8) {
+				return false;
 			} else {
 				return true;
 			}
@@ -25,6 +27,8 @@ public class CreateCommandValidator extends CommandValidator {
 			if (commandArguments.length != 5) {
 				return false;
 			} else if (commandArguments[3] == null || commandArguments[4] == null) {
+				return false;
+			} else if (commandArguments[2].length() != 8) {
 				return false;
 			} else if (!canConvertToDouble(commandArguments[4])) {
 				return false;

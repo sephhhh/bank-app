@@ -248,4 +248,22 @@ public class CreateCommandValidatorTest {
 		assertFalse(actual);
 	}
 
+	@Test
+	void createSavingsWithIdAndAprSwapped() {
+		boolean actual = createCommandValidator.validate("create savings 0.3 12345678");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createCheckingWithIdAndAprSwapped() {
+		boolean actual = createCommandValidator.validate("create checking 0.3 12345678");
+		assertFalse(actual);
+	}
+
+	@Test
+	void createCDWithIdAprBalanceInRandomOrder() {
+		boolean actual = createCommandValidator.validate("create CD 1000.0 0.3 12345678");
+		assertFalse(actual);
+	}
+
 }

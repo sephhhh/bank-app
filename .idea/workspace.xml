@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fce6c7a9-784c-4216-93b8-9cced394ed17" name="Changes" comment="Added createCDWithLittleArguments">
-      <change beforePath="$PROJECT_DIR$/src/main/java/DepositCommandValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DepositCommandValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DepositCommandValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DepositCommandValidatorTest.java" afterDir="false" />
+    <list default="true" id="fce6c7a9-784c-4216-93b8-9cced394ed17" name="Changes" comment="Finished Implementing all Test cases for Create and Deposit">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/jacoco/test.exec" beforeDir="false" afterPath="$PROJECT_DIR$/build/jacoco/test.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/DepositCommandValidatorTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-DepositCommandValidatorTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateCommandValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateCommandValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CreateCommandValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateCommandValidatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +96,31 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DepositCommandValidatorTest">
+  <component name="RunManager" selected="Gradle.CreateCommandValidatorTest">
+    <configuration name="CommandValidatorTest and 2 more" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests &quot;CommandValidatorTest&quot;" />
+            <option value="--tests &quot;CreateCommandValidatorTest&quot;" />
+            <option value="--tests &quot;DepositCommandValidatorTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="CommandValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -131,7 +167,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="DepositCommandValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CreateCommandValidatorTest.createCDWithIdAprBalanceInRandomOrder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -144,7 +180,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;DepositCommandValidatorTest&quot;" />
+            <option value="&quot;CreateCommandValidatorTest.createCDWithIdAprBalanceInRandomOrder&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -154,7 +190,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="DepositCommandValidatorTest.DepositWithoutArgumentsInChecking" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CreateCommandValidatorTest.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -167,28 +203,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;DepositCommandValidatorTest.DepositWithoutArgumentsInChecking&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Tests in 'SE_181_Course_Project.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
+            <option value="&quot;CreateCommandValidatorTest.test&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -213,10 +228,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DepositCommandValidatorTest" />
         <item itemvalue="Gradle.CreateCommandValidatorTest" />
-        <item itemvalue="Gradle.Tests in 'SE_181_Course_Project.test'" />
-        <item itemvalue="Gradle.DepositCommandValidatorTest.DepositWithoutArgumentsInChecking" />
+        <item itemvalue="Gradle.CreateCommandValidatorTest.createCDWithIdAprBalanceInRandomOrder" />
+        <item itemvalue="Gradle.CreateCommandValidatorTest.test" />
+        <item itemvalue="Gradle.CommandValidatorTest and 2 more" />
         <item itemvalue="Gradle.CommandValidatorTest" />
       </list>
     </recent_temporary>
@@ -559,7 +574,21 @@
       <option name="project" value="LOCAL" />
       <updated>1699125720039</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Added TypoInDepositFunctionChecking,">
+      <created>1699127042379</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1699127042379</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Finished Implementing all Test cases for Create and Deposit">
+      <created>1699127293366</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1699127293366</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -586,8 +615,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added createCDWithoutAprAndBalance" />
-    <MESSAGE value="Added createValidChecking, createValidSavings, createCDWithBalanceOverTenThousand" />
     <MESSAGE value="Added createValidCD" />
     <MESSAGE value="Added createCDWithBalanceUnderOneThousand" />
     <MESSAGE value="Added createCDWithBalanceAsLetter" />
@@ -611,6 +638,8 @@
     <MESSAGE value="Added createCDWithNegativeBalance" />
     <MESSAGE value="Added createValidCheckingCaseInsensitive, createValidSavingsCaseInsensitive, createValidCDCaseInsensitive" />
     <MESSAGE value="Added createCDWithLittleArguments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added createCDWithLittleArguments" />
+    <MESSAGE value="Added TypoInDepositFunctionChecking," />
+    <MESSAGE value="Finished Implementing all Test cases for Create and Deposit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Implementing all Test cases for Create and Deposit" />
   </component>
 </project>
