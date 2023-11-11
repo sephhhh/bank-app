@@ -30,4 +30,8 @@ public class Bank {
 		account.withdrawMoney(amount);
 	}
 
+	public String accountExistsById(String id) {
+		Account account = bank.get(id);
+		return account.getId();
+	}
 }
