@@ -14,7 +14,11 @@ public class MasterControl {
 
 	public List<String> start(List<String> input) {
 		for (String command : input) {
-			commandStorage.storeInvalidCommand(command);
+			if (commandValidator.validate(command)) {
+				commandProcessor.processCommand(command);
+			} else {
+				commandStorage.storeInvalidCommand(command);
+			}
 		}
 		return commandStorage.getStoredCommands();
 	}

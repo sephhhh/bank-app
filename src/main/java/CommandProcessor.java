@@ -32,4 +32,22 @@ public class CommandProcessor {
 		bank.getAccountById(commandArguments[1]).depositMoney(Double.parseDouble(commandArguments[2]));
 	}
 
+	public void processCommand(String command) {
+		String[] commandParts = command.split(" ");
+		String action = commandParts[0].toLowerCase();
+
+		switch (action) {
+		case "create":
+			create(command);
+			break;
+		case "deposit":
+			deposit(command);
+			break;
+		default:
+			System.out.println("Invalid command: " + command);
+			break;
+		}
+
+	}
+
 }

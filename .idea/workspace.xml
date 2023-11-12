@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fce6c7a9-784c-4216-93b8-9cced394ed17" name="Changes" comment="Added the type test and store the invalid command into commadnStorage">
+    <list default="true" id="fce6c7a9-784c-4216-93b8-9cced394ed17" name="Changes" comment="Added refactored the typo test">
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -18,6 +18,8 @@
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommandProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CommandValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommandValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MasterControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MasterControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MasterControlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MasterControlTest.java" afterDir="false" />
     </list>
@@ -102,7 +104,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.MasterControlTest">
-    <configuration name="CommandStorageTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CommandValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -115,7 +117,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;CommandStorageTest&quot;" />
+            <option value="&quot;CommandValidatorTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -148,6 +150,29 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="MasterControlTest.invalid_to_create_accounts_with_same_ID" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;MasterControlTest.invalid_to_create_accounts_with_same_ID&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="MasterControlTest.two_type_commands_both_invalid" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -162,29 +187,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;MasterControlTest.two_type_commands_both_invalid&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="MasterControlTest.typo_in_create_command_is_invliad" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;MasterControlTest.typo_in_create_command_is_invliad&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -233,10 +235,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.MasterControlTest" />
+        <item itemvalue="Gradle.CommandValidatorTest" />
         <item itemvalue="Gradle.MasterControlTest.two_type_commands_both_invalid" />
+        <item itemvalue="Gradle.MasterControlTest.invalid_to_create_accounts_with_same_ID" />
         <item itemvalue="Gradle.MasterControlTest.typo_in_deposit_command_is_invalid" />
-        <item itemvalue="Gradle.MasterControlTest.typo_in_create_command_is_invliad" />
-        <item itemvalue="Gradle.CommandStorageTest" />
       </list>
     </recent_temporary>
   </component>
@@ -248,27 +250,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1697303855538</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added 3 test cases to check the balance of the checking, saving, and cd accounts are correct.">
-      <created>1698462261363</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1698462261363</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added CommandValidator, DepositValidator, CreateValidator, and their tests. Also added test case to see if there are duplicate tests, and if their ids are valid.">
-      <created>1699070836893</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1699070836893</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added invalid test to check if the account id are letters">
-      <created>1699071458123</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1699071458123</updated>
     </task>
     <task id="LOCAL-00012" summary="Added invalid test to check if the account id are letters">
       <created>1699072669476</created>
@@ -592,7 +573,28 @@
       <option name="project" value="LOCAL" />
       <updated>1699771648682</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Added refactored the typo test">
+      <created>1699772288026</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1699772288026</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Added refactored the typo test">
+      <created>1699772318335</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1699772318335</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Added refactored the typo test">
+      <created>1699772338367</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1699772338367</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -619,7 +621,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added createSavingWithExistingIdAnotherCD, createCheckingWithExistingIdAnotherCD" />
     <MESSAGE value="Added createCDWithExistingIdAnotherCD" />
     <MESSAGE value="Added createCDWithExistingIdAnotherChecking, createCDWithExistingIdAnotherSavings" />
     <MESSAGE value="Added DepositingWithTwoArgumentsAsAmountWithChecking, DepositingWithTwoArgumentsAsAmountWithSavings" />
@@ -644,6 +645,7 @@
     <MESSAGE value="Added the feature to store invalid commands" />
     <MESSAGE value="Added a TDD for MasterControl" />
     <MESSAGE value="Added the type test and store the invalid command into commadnStorage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the type test and store the invalid command into commadnStorage" />
+    <MESSAGE value="Added refactored the typo test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added refactored the typo test" />
   </component>
 </project>

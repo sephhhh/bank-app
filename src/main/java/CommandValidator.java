@@ -1,3 +1,5 @@
+import java.util.Set;
+
 public class CommandValidator {
 	private Bank bank;
 
@@ -11,6 +13,9 @@ public class CommandValidator {
 	public boolean validate(String command) {
 		String[] commandArguments = command.split(" ");
 		if (bank.getAccountById(commandArguments[2]) != null) {
+			return false;
+		}
+		if (!commandType(commandArguments[0])) {
 			return false;
 		}
 
@@ -42,4 +47,7 @@ public class CommandValidator {
 		}
 	}
 
+	private boolean commandType(String accountType) {
+		return Set.of("create", "deposit").contains(accountType);
+	}
 }
