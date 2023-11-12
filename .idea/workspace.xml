@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fce6c7a9-784c-4216-93b8-9cced394ed17" name="Changes" comment="Added 'createChecking,' 'createSavings,' 'createCd,' and 'create' functions to facilitate the addition of accounts to the bank.">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/jacoco/test.exec" beforeDir="false" afterPath="$PROJECT_DIR$/build/jacoco/test.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommandProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CommandProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CommandProcessorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,7 +168,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CreateCommandValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CommandProcessorTest.depositChecking" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -168,7 +181,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;CreateCommandValidatorTest&quot;" />
+            <option value="&quot;CommandProcessorTest.depositChecking&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -217,10 +230,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.CommandProcessorTest" />
+        <item itemvalue="Gradle.CommandProcessorTest.depositChecking" />
         <item itemvalue="Gradle.CommandProcessorTest.createSavings" />
         <item itemvalue="Gradle.CommandProcessorTest.createChecking" />
         <item itemvalue="Gradle.DepositCommandValidatorTest" />
-        <item itemvalue="Gradle.CreateCommandValidatorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -232,13 +245,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1697303855538</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added codeclimate and gitlab-ci">
-      <created>1698271153989</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1698271153989</updated>
     </task>
     <task id="LOCAL-00005" summary="Renamed gitlab-ci.yml to .gitlab-ci.yml">
       <created>1698271494884</created>
@@ -576,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699726969569</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Added 'createChecking,' 'createSavings,' 'createCd,' and 'create' functions to facilitate the addition of accounts to the bank.">
+      <created>1699768988088</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1699768988088</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

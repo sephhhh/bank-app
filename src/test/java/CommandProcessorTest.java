@@ -35,4 +35,10 @@ public class CommandProcessorTest {
 		assertEquals(1000.0, bank.getAccountById("12345678").getBalance());
 	}
 
+	@Test
+	void depositMoney() {
+		commandProcessor.deposit("deposit 12345678 500");
+		assertEquals(500, bank.getAccountById("12345678").getBalance());
+	}
+
 }

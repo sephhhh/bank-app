@@ -27,7 +27,9 @@ public class CommandProcessor {
 
 	public void deposit(String command) {
 		String[] commandArguments = command.split(" ");
-
+		Checkings checking = new Checkings(1.0, commandArguments[1]);
+		bank.addAccount(checking);
+		bank.getAccountById(commandArguments[1]).depositMoney(Double.parseDouble(commandArguments[2]));
 	}
 
 }
