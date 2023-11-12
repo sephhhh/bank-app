@@ -31,9 +31,4 @@ public class MasterControlTest {
 
 	}
 
-	private void assertSingleCommand(String command, List<String> actual) {
-		assertEquals(1, actual.size());
-		assertEquals(command, actual.get(0));
-	}
-
 }

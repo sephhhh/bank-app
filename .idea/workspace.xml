@@ -101,7 +101,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.MasterControlTest.two_type_commands_both_invalid">
+  <component name="RunManager" selected="Gradle.MasterControlTest">
     <configuration name="CommandStorageTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -232,8 +232,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.MasterControlTest.two_type_commands_both_invalid" />
         <item itemvalue="Gradle.MasterControlTest" />
+        <item itemvalue="Gradle.MasterControlTest.two_type_commands_both_invalid" />
         <item itemvalue="Gradle.MasterControlTest.typo_in_deposit_command_is_invalid" />
         <item itemvalue="Gradle.MasterControlTest.typo_in_create_command_is_invliad" />
         <item itemvalue="Gradle.CommandStorageTest" />
