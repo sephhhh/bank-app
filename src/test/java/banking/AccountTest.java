@@ -69,4 +69,14 @@ public class AccountTest {
 		bank.withdrawMoneyById(ID, 100.0);
 		assertEquals(0.0, checkings.getBalance());
 	}
+
+	@Test
+	public void testWithdrawMoneyMutant() {
+		bank.addAccount(checkings);
+		bank.depositMoneyById(ID, 100.0);
+		bank.addAccount(checkings);
+		checkings.withdrawMoney(100.0);
+		assertEquals(0.0, checkings.getBalance(), 0.001);
+	}
 }
+
