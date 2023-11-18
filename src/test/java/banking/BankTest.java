@@ -74,4 +74,7 @@ public class BankTest {
 		assertEquals(0.0, checkings.getBalance());
 	}
 
+
+
+
 }
