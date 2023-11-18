@@ -1,3 +1,5 @@
+package banking;
+
 import java.util.Set;
 
 public class CommandValidator {

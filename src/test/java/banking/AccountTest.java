@@ -1,11 +1,13 @@
+package banking;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class BankTest {
+public class AccountTest {
 	public static final String ID = "00000000";
+	public static final double BALANCE = 2005.54;
 	Bank bank;
 	Checkings checkings;
 	Savings savings;
@@ -14,32 +16,28 @@ public class BankTest {
 	void setUp() {
 		bank = new Bank();
 		checkings = new Checkings(0.3, ID);
-		savings = new Savings(0.3, "00000001");
+		savings = new Savings(0.3, ID);
 	}
 
 	@Test
-	void bank_has_no_accounts() {
-		assertTrue(bank.getAllAccounts().isEmpty());
+	void create_checking_with_no_balance() {
+		assertEquals(0, checkings.getBalance());
 	}
 
 	@Test
-	void add_one_account_to_bank() {
-		bank.addAccount(checkings);
-		assertEquals(checkings, bank.getAccountById(ID));
+	void create_savings_with_no_balance() {
+		assertEquals(0, savings.getBalance());
 	}
 
 	@Test
-	void add_two_account_to_bank() {
-		bank.addAccount(checkings);
-		bank.addAccount(savings);
-		assertEquals(checkings, bank.getAccountById(ID));
-		assertEquals(savings, bank.getAccountById("00000001"));
+	void create_cd_with_specified_balance() {
+		CertificateOfDeposit certificateOfDeposit = new CertificateOfDeposit(0.3, BALANCE, ID);
+		assertEquals(2005.54, certificateOfDeposit.getBalance());
 	}
 
 	@Test
-	void retrieve_one_account() {
-		bank.addAccount(checkings);
-		assertEquals(checkings, bank.getAccountById(ID));
+	void create_bank_account_with_apr() {
+		assertEquals(0.3, savings.getApr());
 	}
 
 	@Test
@@ -71,5 +69,4 @@ public class BankTest {
 		bank.withdrawMoneyById(ID, 100.0);
 		assertEquals(0.0, checkings.getBalance());
 	}
-
 }
