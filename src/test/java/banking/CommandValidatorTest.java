@@ -78,4 +78,12 @@ public class CommandValidatorTest {
 		assertFalse(actual);
 	}
 
+	@Test
+	public void testValidateMutant() {
+		assertFalse(commandValidator.validate("create savings 12345678 10.0"));
+		assertFalse(commandValidator.validate("create savings 12345678 15.0"));
+		assertTrue(commandValidator.validate("create savings 12345678 5.0"));
+	}
+
 }
+
