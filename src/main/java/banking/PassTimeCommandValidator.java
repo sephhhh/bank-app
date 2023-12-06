@@ -2,6 +2,12 @@ package banking;
 
 public class PassTimeCommandValidator extends CommandValidator{
 
+    Bank bank;
+
+    public PassTimeCommandValidator(Bank bank) {
+        this.bank = bank;
+    }
+
     public boolean validate(String command) {
         String[] commandArguments = command.split(" ");
         if (commandArguments.length != 2) {

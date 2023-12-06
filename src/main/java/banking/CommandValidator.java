@@ -20,7 +20,6 @@ public class CommandValidator {
 		if (!commandType(commandArguments[0])) {
 			return false;
 		}
-
 		if (!commandArguments[2].matches("[0-9]+")) {
 			return false;
 		} else if (commandArguments[2].length() != 8) {
