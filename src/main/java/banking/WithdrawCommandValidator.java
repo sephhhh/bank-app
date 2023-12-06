@@ -33,7 +33,7 @@ public class WithdrawCommandValidator extends CommandValidator {
                 return false;
             }
         } else if ("CD".equals(account.getAccountType())) {
-            if (commandArguments.length > 0) {
+            if (bank.getAccountById(commandArguments[1]).monthsPassed < 12) {
                 return false;
             }
         }
