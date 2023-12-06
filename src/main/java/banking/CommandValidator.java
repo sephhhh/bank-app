@@ -50,6 +50,6 @@ public class CommandValidator {
 	}
 
 	private boolean commandType(String accountType) {
-		return Set.of("create", "deposit").contains(accountType);
+		return Set.of("create", "deposit", "withdraw").contains(accountType);
 	}
 }

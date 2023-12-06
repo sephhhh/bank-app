@@ -20,7 +20,7 @@ public class DepositCommandValidator extends CommandValidator {
 		if ("checking".equals(account.getAccountType())) {
 			if (!canConvertToDouble(commandArguments[2])) {
 				return false;
-			} else if (Double.parseDouble(commandArguments[2]) > 2500.0) {
+			} else if (Double.parseDouble(commandArguments[2]) > 1000.0) {
 				return false;
 			} else if (Double.parseDouble(commandArguments[2]) < 0.0) {
 				return false;
@@ -30,7 +30,7 @@ public class DepositCommandValidator extends CommandValidator {
 		} else if ("savings".equals(account.getAccountType())) {
 			if (!canConvertToDouble(commandArguments[2])) {
 				return false;
-			} else if (Double.parseDouble(commandArguments[2]) > 1000.0) {
+			} else if (Double.parseDouble(commandArguments[2]) > 2500.0) {
 				return false;
 			} else if (Double.parseDouble(commandArguments[2]) < 0.0) {
 				return false;
