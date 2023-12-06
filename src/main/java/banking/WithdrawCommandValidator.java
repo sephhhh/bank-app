@@ -32,6 +32,10 @@ public class WithdrawCommandValidator extends CommandValidator {
             } else if (Double.parseDouble(commandArguments[2]) < 0.0) {
                 return false;
             }
+        } else if ("CD".equals(account.getAccountType())) {
+            if (commandArguments.length > 0) {
+                return false;
+            }
         }
         return true;
     }
