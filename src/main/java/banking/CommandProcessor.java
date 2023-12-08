@@ -49,7 +49,36 @@ public class CommandProcessor {
 			System.out.println("Invalid command: " + command);
 			break;
 		}
+	}
 
+	public void passTime(String command) {
+		String[] commandParts = command.split(" ");
+		while (Double.parseDouble(commandParts[1]) != 0) {
+			for (Account account : bank.getAllAccounts().values()) {
+				double apr = account.getApr();
+				double interest;
+				double balance = account.getBalance();
+				if (balance == 0) {
+					bank.closeAccount(account);
+				} else if (balance < 100) {
+					account.deductMoney();
+					if (account.getAccountType() == "CD") {
+						for (int i = 0; i<=3; i++) {
+							apr /= 100;
+							apr /= 12;
+							interest = balance * apr;
+							balance += interest;
+						}
+					} else {
+						apr /= 100;
+						apr /= 12;
+						interest = balance * apr;
+						balance += interest;
+					}
+					account.changeBalance(balance);
+				}
+			}
+		}
 	}
 
 

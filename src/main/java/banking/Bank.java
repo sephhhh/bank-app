@@ -36,4 +36,8 @@ public class Bank {
 		Account account = bank.get(id);
 		return account.getId();
 	}
+
+	public void closeAccount(Account account) {
+		bank.remove(account.getId());
+	}
 }

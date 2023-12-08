@@ -39,7 +39,7 @@ public abstract class Account {
 
 	public void withdrawMoneyCounter() {
 
-		numTimesWithdrew += 1;
+
 	}
 
 	public void depositMoney(double amount) {
@@ -56,6 +56,14 @@ public abstract class Account {
 
 	public String getAccountType() {
 		return accountType;
+	}
+
+	public void deductMoney() {
+		balance -= 25;
+	}
+
+	public void changeBalance(double amount) {
+		balance = amount;
 	}
 
 }
