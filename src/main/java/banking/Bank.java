@@ -41,4 +41,16 @@ public class Bank {
 		account.numTimesWithdrew = 0;
 		bank.remove(account.getId());
 	}
+
+	public void transfer(String id1, String id2, double amount) {
+		Account account1 = bank.get(id1);
+		Account account2 = bank.get(id2);
+		if (account1.getBalance() < amount) {
+			account1.withdrawMoney(account1.getBalance());
+			account2.depositMoney(account1.getBalance());
+		} else {
+			account1.withdrawMoney(amount);
+			account2.depositMoney(amount);
+		}
+	}
 }
