@@ -38,6 +38,7 @@ public class Bank {
 	}
 
 	public void closeAccount(Account account) {
+		account.numTimesWithdrew = 0;
 		bank.remove(account.getId());
 	}
 }

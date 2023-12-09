@@ -55,8 +55,6 @@ public class CommandProcessor {
 		String[] commandParts = command.split(" ");
 		while (Double.parseDouble(commandParts[1]) != 0) {
 			for (Account account : bank.getAllAccounts().values()) {
-				double apr = account.getApr();
-				double interest;
 				double balance = account.getBalance();
 				if (balance == 0) {
 					bank.closeAccount(account);
@@ -64,16 +62,10 @@ public class CommandProcessor {
 					account.deductMoney();
 					if (account.getAccountType() == "CD") {
 						for (int i = 0; i<=3; i++) {
-							apr /= 100;
-							apr /= 12;
-							interest = balance * apr;
-							balance += interest;
+							balance = account.calApr();
 						}
 					} else {
-						apr /= 100;
-						apr /= 12;
-						interest = balance * apr;
-						balance += interest;
+						balance = account.calApr();
 					}
 					account.changeBalance(balance);
 				}

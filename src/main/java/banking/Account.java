@@ -17,6 +17,7 @@ public abstract class Account {
 		this.numTimesWithdrew = 0;
 	}
 
+
 	public Double getBalance() {
 		return balance;
 	}
@@ -29,17 +30,18 @@ public abstract class Account {
 		return id;
 	}
 
-	public int getMonthsPassed() {
-		return monthsPassed;
-	}
-
 	public int getNumTimesWithdrew() {
 		return numTimesWithdrew;
 	}
 
-	public void withdrawMoneyCounter() {
-
-
+	public double calApr() {
+		double interest;
+		apr /= 100;
+		apr /= 12;
+		interest = balance * apr;
+		balance += interest;
+		numTimesWithdrew = 0;
+		return balance;
 	}
 
 	public void depositMoney(double amount) {
@@ -52,7 +54,10 @@ public abstract class Account {
 		} else {
 			balance -= amount;
 		}
+		numTimesWithdrew++;
 	}
+
+
 
 	public String getAccountType() {
 		return accountType;

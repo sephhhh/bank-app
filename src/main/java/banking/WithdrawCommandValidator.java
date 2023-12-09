@@ -31,6 +31,8 @@ public class WithdrawCommandValidator extends CommandValidator {
                 return false;
             } else if (Double.parseDouble(commandArguments[2]) < 0.0) {
                 return false;
+            } else if (account.getNumTimesWithdrew() != 1) {
+                return false;
             }
         } else if ("CD".equals(account.getAccountType())) {
             if (bank.getAccountById(commandArguments[1]).monthsPassed < 12) {
