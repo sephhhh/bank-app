@@ -34,6 +34,12 @@ public class CommandProcessor {
 		bank.getAccountById(commandArguments[1]).depositMoney(Double.parseDouble(commandArguments[2]));
 	}
 
+	public void withdraw(String command) {
+		String[] commandArguments = command.split(" ");
+		Account account = bank.getAccountById(commandArguments[1]);
+		account.withdrawMoney(Double.parseDouble(commandArguments[2]));
+	}
+
 	public void processCommand(String command) {
 		String[] commandParts = command.split(" ");
 		String action = commandParts[0].toLowerCase();
@@ -73,5 +79,9 @@ public class CommandProcessor {
 		}
 	}
 
+	public void transfer(String command) {
+		String[] commandParts = command.split(" ");
+		bank.transfer(commandParts[1], commandParts[2], Double.parseDouble(commandParts[3]));
+	}
 
 }

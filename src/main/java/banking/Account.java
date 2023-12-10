@@ -57,8 +57,6 @@ public abstract class Account {
 		numTimesWithdrew++;
 	}
 
-
-
 	public String getAccountType() {
 		return accountType;
 	}
