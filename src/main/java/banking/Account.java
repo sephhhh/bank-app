@@ -46,6 +46,7 @@ public abstract class Account {
 		apr /= 12;
 		interest = balance * apr;
 		balance += interest;
+		numTimesWithdrew = 0;
 		return balance;
 	}
 
