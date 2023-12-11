@@ -1,5 +1,8 @@
 package banking;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Account {
 	double balance;
 	double apr;
@@ -49,16 +52,22 @@ public abstract class Account {
 	}
 
 	public void depositMoney(double amount) {
+		List<String> depositHistory = new ArrayList<>();
 		balance += amount;
+		String formattedOutput = String.format("Deposit %s %.2f", this.id, amount);
+		depositHistory.add(formattedOutput);
 		depositToken++;
 	}
 
 	public void withdrawMoney(double amount) {
+		List<String> withdrawHistory = new ArrayList<>();
 		if (amount >= balance) {
 			balance = 0.0;
 		} else {
 			balance -= amount;
 		}
+		String formattedOutput = String.format("Withdraw %s %.2f", this.id, amount);
+		withdrawHistory.add(formattedOutput);
 		numTimesWithdrew++;
 		withdrawToken++;
 	}

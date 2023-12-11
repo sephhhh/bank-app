@@ -1,6 +1,8 @@
 package banking;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Bank {
@@ -44,6 +46,7 @@ public class Bank {
 	}
 
 	public void transfer(String id1, String id2, double amount) {
+		List<String> transferHistory = new ArrayList<>();
 		Account account1 = bank.get(id1);
 		Account account2 = bank.get(id2);
 		if (account1.getBalance() < amount) {
@@ -51,6 +54,8 @@ public class Bank {
 		}
 		account1.withdrawMoney(amount);
 		account2.depositMoney(amount);
+		String formattedOutput = String.format("Transfer %s %s %.2f", id1, id2, amount);
+		transferHistory.add(formattedOutput);
 		transferToken++;
 	}
 }
