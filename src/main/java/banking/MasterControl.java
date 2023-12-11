@@ -1,6 +1,8 @@
 package banking;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class MasterControl {
@@ -46,6 +48,14 @@ public class MasterControl {
 				}
 			}
 		}
+		List<String> originalInvalidCommands = commandStorage.getStoredCommands();
+		List<String> reversedInvalidCommands = new ArrayList<>(originalInvalidCommands);
+		Collections.reverse(reversedInvalidCommands);
+
+		for (String command : reversedInvalidCommands) {
+			outputList.add(command);
+		}
+
 		return outputList;
 	}
 
