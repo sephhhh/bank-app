@@ -1,5 +1,6 @@
 package banking;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MasterControl {
@@ -24,5 +25,25 @@ public class MasterControl {
 		}
 		return commandStorage.getStoredCommands();
 	}
+
+
+	public List<String> output(List<String> input) {
+		List<String> outputList = new ArrayList<>();
+		for (String command : input) {
+			String[] commandParts = command.split(" ");
+			if ("create".equals(commandParts[0])) {
+				Bank bank = new Bank();
+				Account account = bank.getAccountById(commandParts[2]);
+				String formattedOutput = String.format("%s %s %.2f %s", commandParts[1], commandParts[2], account.getBalance(), commandParts[3]);
+				outputList.add(formattedOutput);
+
+				if (account.depositToken > account.withdrawToken && account.depositToken > bank.transferToken) {
+
+				}
+			}
+		}
+		return outputList;
+	}
+
 
 }

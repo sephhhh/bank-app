@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Bank {
 	private Map<String, Account> bank;
+	int transferToken;
 
 	Bank() {
 		bank = new HashMap<>();
@@ -50,5 +51,6 @@ public class Bank {
 		}
 		account1.withdrawMoney(amount);
 		account2.depositMoney(amount);
+		transferToken++;
 	}
 }

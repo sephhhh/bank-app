@@ -7,6 +7,8 @@ public abstract class Account {
 	String accountType;
 	int monthsPassed;
 	int numTimesWithdrew;
+	int depositToken;
+	int withdrawToken;
 
 	public Account(double apr, double balance, String id, String accountType) {
 		this.apr = apr;
@@ -15,6 +17,8 @@ public abstract class Account {
 		this.accountType = accountType;
 		this.monthsPassed = 0;
 		this.numTimesWithdrew = 0;
+		this.depositToken = 0;
+		this.withdrawToken = 0;
 	}
 
 
@@ -40,12 +44,13 @@ public abstract class Account {
 		apr /= 12;
 		interest = balance * apr;
 		balance += interest;
-		numTimesWithdrew = 0;
+		depositToken = 0;
 		return balance;
 	}
 
 	public void depositMoney(double amount) {
 		balance += amount;
+		depositToken++;
 	}
 
 	public void withdrawMoney(double amount) {
@@ -55,6 +60,7 @@ public abstract class Account {
 			balance -= amount;
 		}
 		numTimesWithdrew++;
+		withdrawToken++;
 	}
 
 	public String getAccountType() {

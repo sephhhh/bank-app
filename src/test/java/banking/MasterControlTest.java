@@ -30,7 +30,6 @@ public class MasterControlTest {
 		assertEquals(2, actual.size());
 		assertEquals("creat checking 12345678 1.0", actual.get(0));
 		assertEquals("depositt 12345678 100", actual.get(1));
-
 	}
 
 	@Test
