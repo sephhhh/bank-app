@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Account {
+	List<String> withdrawHistory;
+	List<String> depositHistory;
 	double balance;
 	double apr;
 	String id;
@@ -22,6 +24,8 @@ public abstract class Account {
 		this.numTimesWithdrew = 0;
 		this.depositToken = 0;
 		this.withdrawToken = 0;
+		this.withdrawHistory = new ArrayList<>();
+		this.depositHistory = new ArrayList<>();
 	}
 
 
@@ -52,7 +56,6 @@ public abstract class Account {
 	}
 
 	public void depositMoney(double amount) {
-		List<String> depositHistory = new ArrayList<>();
 		balance += amount;
 		String formattedOutput = String.format("Deposit %s %.2f", this.id, amount);
 		depositHistory.add(formattedOutput);
@@ -60,7 +63,6 @@ public abstract class Account {
 	}
 
 	public void withdrawMoney(double amount) {
-		List<String> withdrawHistory = new ArrayList<>();
 		if (amount >= balance) {
 			balance = 0.0;
 		} else {

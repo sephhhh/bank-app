@@ -7,10 +7,21 @@ import java.util.Map;
 
 public class Bank {
 	private Map<String, Account> bank;
-	int transferToken;
+	private int transferToken;
+	private List<String> transferHistory;
 
 	Bank() {
 		bank = new HashMap<>();
+		transferHistory = new ArrayList<>();
+		transferToken = 0;
+	}
+
+	public int getTransferToken() {
+		return transferToken;
+	}
+
+	public List<String> getTransferHistory() {
+		return transferHistory;
 	}
 
 	public Map<String, Account> getAllAccounts() {
@@ -46,7 +57,6 @@ public class Bank {
 	}
 
 	public void transfer(String id1, String id2, double amount) {
-		List<String> transferHistory = new ArrayList<>();
 		Account account1 = bank.get(id1);
 		Account account2 = bank.get(id2);
 		if (account1.getBalance() < amount) {
