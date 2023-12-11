@@ -4,16 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Account {
-	List<String> withdrawHistory;
-	List<String> depositHistory;
+	List<String> transactionHistory;
 	double balance;
 	double apr;
 	String id;
 	String accountType;
 	int monthsPassed;
 	int numTimesWithdrew;
-	int depositToken;
-	int withdrawToken;
+
 
 	public Account(double apr, double balance, String id, String accountType) {
 		this.apr = apr;
@@ -22,10 +20,7 @@ public abstract class Account {
 		this.accountType = accountType;
 		this.monthsPassed = 0;
 		this.numTimesWithdrew = 0;
-		this.depositToken = 0;
-		this.withdrawToken = 0;
-		this.withdrawHistory = new ArrayList<>();
-		this.depositHistory = new ArrayList<>();
+		this.transactionHistory = new ArrayList<>();
 	}
 
 
@@ -51,15 +46,13 @@ public abstract class Account {
 		apr /= 12;
 		interest = balance * apr;
 		balance += interest;
-		depositToken = 0;
 		return balance;
 	}
 
 	public void depositMoney(double amount) {
 		balance += amount;
 		String formattedOutput = String.format("Deposit %s %.2f", this.id, amount);
-		depositHistory.add(formattedOutput);
-		depositToken++;
+		transactionHistory.add(formattedOutput);
 	}
 
 	public void withdrawMoney(double amount) {
@@ -69,9 +62,8 @@ public abstract class Account {
 			balance -= amount;
 		}
 		String formattedOutput = String.format("Withdraw %s %.2f", this.id, amount);
-		withdrawHistory.add(formattedOutput);
+		transactionHistory.add(formattedOutput);
 		numTimesWithdrew++;
-		withdrawToken++;
 	}
 
 	public String getAccountType() {

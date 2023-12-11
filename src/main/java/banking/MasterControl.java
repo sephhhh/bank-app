@@ -39,15 +39,17 @@ public class MasterControl {
 				String formattedOutput = String.format("%s %s %.2f %s", commandParts[1], commandParts[2], account.getBalance(), commandParts[3]);
 				outputList.add(formattedOutput);
 
-				if (account.depositToken > account.withdrawToken && account.depositToken > bank.getTransferToken()) {
-					outputList.add((account.depositHistory).get(account.depositHistory.size() - 1));
-				} else if (account.withdrawToken > account.depositToken && account.withdrawToken > bank.getTransferToken()) {
-					outputList.add((account.withdrawHistory).get(account.withdrawHistory.size() - 1));
-				} else {
-					outputList.add((bank.getTransferHistory()).get(bank.getTransferHistory().size() - 1));
+
+				List<String> originalList = account.transactionHistory;
+				List<String> reversedList = new ArrayList<>(originalList);
+				Collections.reverse(reversedList);
+
+				for (String transaction : account.transactionHistory) {
+					outputList.add(transaction);
 				}
 			}
 		}
+
 		List<String> originalInvalidCommands = commandStorage.getStoredCommands();
 		List<String> reversedInvalidCommands = new ArrayList<>(originalInvalidCommands);
 		Collections.reverse(reversedInvalidCommands);

@@ -7,21 +7,10 @@ import java.util.Map;
 
 public class Bank {
 	private Map<String, Account> bank;
-	private int transferToken;
-	private List<String> transferHistory;
 
 	Bank() {
 		bank = new HashMap<>();
-		transferHistory = new ArrayList<>();
-		transferToken = 0;
-	}
 
-	public int getTransferToken() {
-		return transferToken;
-	}
-
-	public List<String> getTransferHistory() {
-		return transferHistory;
 	}
 
 	public Map<String, Account> getAllAccounts() {
@@ -65,7 +54,7 @@ public class Bank {
 		account1.withdrawMoney(amount);
 		account2.depositMoney(amount);
 		String formattedOutput = String.format("Transfer %s %s %.2f", id1, id2, amount);
-		transferHistory.add(formattedOutput);
-		transferToken++;
+		account1.transactionHistory.add(formattedOutput);
+		account2.transactionHistory.add(formattedOutput);
 	}
 }
