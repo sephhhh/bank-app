@@ -35,7 +35,6 @@ public class CommandValidator {
 		} else if (Double.parseDouble(commandArguments[3]) > 10.0) {
 			return false;
 		}
-
 		return true;
 	}
 
