@@ -19,7 +19,7 @@ public class DepositCommandValidatorTest {
 		depositCommandValidator = new DepositCommandValidator(bank);
 		checking = new Checkings(0.3, "12345678");
 		savings = new Savings(0.3, "12345678");
-		cd = new CertificateOfDeposit(0.3, 1000.0, "12345678");
+		cd = new CertificateOfDeposit(0.3, 1000.0, "87654321");
 	}
 
 	@Test
@@ -180,6 +180,13 @@ public class DepositCommandValidatorTest {
 	void TypoInDepositFunctionChecking() {
 		bank.addAccount(checking);
 		boolean actual = depositCommandValidator.validate("Depos 1234567 50.0");
+		assertFalse(actual);
+	}
+
+	@Test
+	void cannot_deposit_into_cd() {
+		bank.addAccount(cd);
+		boolean actual = depositCommandValidator.validate("Deposit 87654321 50");
 		assertFalse(actual);
 	}
 
