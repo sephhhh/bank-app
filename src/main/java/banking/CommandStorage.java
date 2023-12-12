@@ -6,18 +6,28 @@ import java.util.Map;
 
 public class CommandStorage {
 
-	private List<String> storedCommands;
+	private List<String> storedValidCommands;
+	private List<String> storedInvalidCommands;
 
 	public CommandStorage() {
-		storedCommands = new ArrayList<>();
+		storedValidCommands = new ArrayList<>();
+		storedInvalidCommands = new ArrayList<>();
+	}
+
+	public void storeValidCommands(String command) {
+		storedValidCommands.add(command);
 	}
 
 	public void storeInvalidCommand(String command) {
-		storedCommands.add(command);
+		storedInvalidCommands.add(command);
 	}
 
-	public List<String> getStoredCommands() {
-		return storedCommands;
+	public List<String> getValidCommands() {
+		return storedValidCommands;
+	}
+
+	public List<String> getInvalidCommands() {
+		return storedInvalidCommands;
 	}
 
 }

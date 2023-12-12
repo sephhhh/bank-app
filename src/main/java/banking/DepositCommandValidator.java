@@ -1,5 +1,7 @@
 package banking;
 
+import java.util.Locale;
+
 public class DepositCommandValidator extends CommandValidator {
 	private Bank bank;
 
@@ -35,7 +37,7 @@ public class DepositCommandValidator extends CommandValidator {
 			} else if (Double.parseDouble(commandArguments[2]) < 0.0) {
 				return false;
 			}
-		} else if ("CD".equals(account.getAccountType())) {
+		} else if ("cd".equals(account.getAccountType())) {
 			if (commandArguments.length > 0) {
 				return false;
 			}

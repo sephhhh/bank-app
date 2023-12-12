@@ -11,6 +11,7 @@ public abstract class Account {
 	String accountType;
 	int monthsPassed;
 	int numTimesWithdrew;
+	double interest;
 
 
 	public Account(double apr, double balance, String id, String accountType) {
@@ -41,9 +42,8 @@ public abstract class Account {
 	}
 
 	public double calApr() {
-		double interest;
-		apr /= 100;
 		apr /= 12;
+		apr /= 100;
 		interest = balance * apr;
 		balance += interest;
 		numTimesWithdrew = 0;
@@ -52,8 +52,12 @@ public abstract class Account {
 
 	public void depositMoney(double amount) {
 		balance += amount;
-		String formattedOutput = String.format("Deposit %s %.2f", this.id, amount);
+		String formattedOutput = String.format("Deposit %s %d", this.id, (int) amount);
 		transactionHistory.add(formattedOutput);
+	}
+
+	public void depositMoneyTransfer(double amount) {
+		balance += amount;
 	}
 
 	public void withdrawMoney(double amount) {

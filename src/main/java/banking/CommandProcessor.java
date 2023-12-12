@@ -1,5 +1,8 @@
 package banking;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CommandProcessor {
 	private Bank bank;
 
@@ -9,29 +12,22 @@ public class CommandProcessor {
 
 	public void create(String command) {
 		String[] commandArguments = command.split(" ");
-		switch (commandArguments[1]) {
-		case ("checking"):
-			Checkings checking = new Checkings(Double.parseDouble(commandArguments[3]), commandArguments[2]);
-			bank.addAccount(checking);
-
-			break;
-		case ("savings"):
+		if ("savings".equals((commandArguments[1]).toLowerCase())) {
 			Savings savings = new Savings(Double.parseDouble(commandArguments[3]), commandArguments[2]);
 			bank.addAccount(savings);
-			break;
-		case ("cd"):
-			CertificateOfDeposit cd = new CertificateOfDeposit(Double.parseDouble(commandArguments[3]),
-					Double.parseDouble(commandArguments[2]), commandArguments[4]);
+		} else if ("checking".equals((commandArguments[1]).toLowerCase())) {
+			Checkings checkings = new Checkings(Double.parseDouble(commandArguments[3]), commandArguments[2]);
+			bank.addAccount(checkings);
+		} else {
+			CertificateOfDeposit cd = new CertificateOfDeposit(Double.parseDouble(commandArguments[3]), Double.parseDouble(commandArguments[4]), commandArguments[2]);
 			bank.addAccount(cd);
-			break;
 		}
 	}
 
 	public void deposit(String command) {
 		String[] commandArguments = command.split(" ");
-		Checkings checking = new Checkings(1.0, commandArguments[1]);
-		bank.addAccount(checking);
-		bank.getAccountById(commandArguments[1]).depositMoney(Double.parseDouble(commandArguments[2]));
+		Account account = bank.getAccountById(commandArguments[1]);
+		account.depositMoney(Double.parseDouble(commandArguments[2]));
 	}
 
 	public void withdraw(String command) {
@@ -51,33 +47,53 @@ public class CommandProcessor {
 		case "deposit":
 			deposit(command);
 			break;
+		case "transfer":
+			transfer(command);
+			break;
+		case "pass":
+			passTime(command);
+			break;
 		default:
-			System.out.println("Invalid command: " + command);
 			break;
 		}
 	}
 
 	public void passTime(String command) {
 		String[] commandParts = command.split(" ");
-		while (Double.parseDouble(commandParts[1]) != 0) {
+		int months = Integer.parseInt(commandParts[1]);
+
+		List<Account> accountsToClose = new ArrayList<>();
+
+		while (months != 0) {
 			for (Account account : bank.getAllAccounts().values()) {
 				double balance = account.getBalance();
 				if (balance == 0) {
-					bank.closeAccount(account);
+					accountsToClose.add(account);
 				} else if (balance < 100) {
 					account.deductMoney();
 					if (account.getAccountType() == "CD") {
-						for (int i = 0; i<=3; i++) {
+						for (int i = 0; i <= 3; i++) {
 							balance = account.calApr();
 						}
 					} else {
 						balance = account.calApr();
 					}
 					account.changeBalance(balance);
+				} else {
+					balance = account.calApr();
+					account.changeBalance(balance);
 				}
 			}
+
+			months--;
+		}
+
+		// Close accounts with a balance of 0 outside the for loop
+		for (Account accountToClose : accountsToClose) {
+			bank.closeAccount(accountToClose);
 		}
 	}
+
 
 	public void transfer(String command) {
 		String[] commandParts = command.split(" ");

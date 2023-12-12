@@ -52,8 +52,8 @@ public class Bank {
 			amount = account1.getBalance();
 		}
 		account1.withdrawMoney(amount);
-		account2.depositMoney(amount);
-		String formattedOutput = String.format("Transfer %s %s %.2f", id1, id2, amount);
+		account2.depositMoneyTransfer(amount);
+		String formattedOutput = String.format("Transfer %s %s %d", id1, id2, (int) amount);
 		account1.transactionHistory.add(formattedOutput);
 		account2.transactionHistory.add(formattedOutput);
 	}

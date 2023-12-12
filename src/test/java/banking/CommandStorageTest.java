@@ -13,7 +13,7 @@ public class CommandStorageTest {
 		CommandStorage commandStorage = new CommandStorage();
 		commandStorage.storeInvalidCommand("invalidCommand1");
 
-		List<String> storedCommands = commandStorage.getStoredCommands();
+		List<String> storedCommands = commandStorage.getInvalidCommands();
 
 		assertEquals(1, storedCommands.size());
 		assertEquals("invalidCommand1", storedCommands.get(0));

@@ -9,57 +9,60 @@ public class MasterControl {
 	private CommandValidator commandValidator;
 	private CommandProcessor commandProcessor;
 	private CommandStorage commandStorage;
+	private Bank bank;
 
 	public MasterControl(CommandValidator commandValidator, CommandProcessor commandProcessor,
-			CommandStorage commandStorage) {
+			CommandStorage commandStorage, Bank bank) {
 		this.commandValidator = commandValidator;
 		this.commandStorage = commandStorage;
 		this.commandProcessor = commandProcessor;
+		this.bank = bank;
 	}
 
 	public List<String> start(List<String> input) {
 		for (String command : input) {
 			if (commandValidator.validate(command)) {
+				commandStorage.storeValidCommands(command);
 				commandProcessor.processCommand(command);
 			} else {
 				commandStorage.storeInvalidCommand(command);
 			}
 		}
-		return commandStorage.getStoredCommands();
+		System.out.println(commandStorage.getValidCommands());
+		return output(commandStorage.getValidCommands());
 	}
 
 
 	public List<String> output(List<String> input) {
 		List<String> outputList = new ArrayList<>();
+
 		for (String command : input) {
 			String[] commandParts = command.split(" ");
-			if ("create".equals(commandParts[0])) {
-				Bank bank = new Bank();
+			if (commandParts.length >= 4 && "create".equals(commandParts[0].toLowerCase())) {
 				Account account = bank.getAccountById(commandParts[2]);
-				String formattedOutput = String.format("%s %s %.2f %s", commandParts[1], commandParts[2], account.getBalance(), commandParts[3]);
-				outputList.add(formattedOutput);
 
+				if (account != null) {
+					String accountType = Character.toUpperCase(commandParts[1].charAt(0)) + commandParts[1].substring(1);
+					String formattedOutput = String.format("%s %s %.2f %.2f", accountType, commandParts[2], account.getBalance(), Double.parseDouble(commandParts[3]));
+					outputList.add(formattedOutput);
 
-				List<String> originalList = account.transactionHistory;
-				List<String> reversedList = new ArrayList<>(originalList);
-				Collections.reverse(reversedList);
-
-				for (String transaction : account.transactionHistory) {
-					outputList.add(transaction);
+					if (account.transactionHistory != null) {
+						outputList.addAll(account.transactionHistory);
+					}
 				}
 			}
 		}
 
-		List<String> originalInvalidCommands = commandStorage.getStoredCommands();
-		List<String> reversedInvalidCommands = new ArrayList<>(originalInvalidCommands);
-		Collections.reverse(reversedInvalidCommands);
+		List<String> invalidCommands = commandStorage.getInvalidCommands();
 
-		for (String command : reversedInvalidCommands) {
-			outputList.add(command);
+		if (invalidCommands != null) {
+			outputList.addAll(invalidCommands);
 		}
 
 		return outputList;
 	}
+
+
 
 
 }
