@@ -129,4 +129,14 @@ public class CommandProcessorTest {
 		assertEquals(1000.50, cdAccount.getBalance());
 	}
 
+	@Test
+	void passTime_if_balance_is_exactly_less_than_100() {
+		Savings savings = new Savings(0.6, "12345678");
+		bank.addAccount(savings);
+		savings.depositMoney(100);
+		commandProcessor.passTime("Pass 1");
+
+		assertEquals(100.05, savings.getBalance());
+	}
+
 }
