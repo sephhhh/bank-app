@@ -141,6 +141,37 @@ public class WithdrawCommandValidatorTest {
         assertFalse(actual);
     }
 
+    @Test
+    void invalid_savings_withdraw_with_non_convertible_amount() {
+        boolean actual = withdrawCommandValidator.validate("Withdraw " + savings.getId() + " abc");
+        assertFalse(actual);
+    }
+
+    @Test
+    void invalid_savings_withdraw_exceeds_limit() {
+        boolean actual = withdrawCommandValidator.validate("Withdraw " + savings.getId() + " 1500");
+        assertFalse(actual);
+    }
+
+    @Test
+    void invalid_savings_withdraw_negative_amount() {
+        boolean actual = withdrawCommandValidator.validate("Withdraw " + savings.getId() + " -100");
+        assertFalse(actual);
+    }
+
+    @Test
+    void invalid_savings_withdraw_after_first_withdraw() {
+        savings.withdrawMoney(100);
+        boolean actual = withdrawCommandValidator.validate("Withdraw " + savings.getId() + " 300");
+        assertFalse(actual);
+    }
+
+    @Test
+    void valid_savings_withdraw_within_limit_and_first_withdraw() {
+        boolean actual = withdrawCommandValidator.validate("Withdraw " + savings.getId() + " 500");
+        assertTrue(actual);
+    }
+
 
 
 
