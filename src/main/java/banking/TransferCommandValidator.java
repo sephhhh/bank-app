@@ -19,7 +19,7 @@ public class TransferCommandValidator extends CommandValidator{
         }
         Account account1 = bank.getAccountById(commandArguments[1]);
         Account account2 = bank.getAccountById(commandArguments[2]);
-        if ("cd".equals(account1.getAccountType()) || "cd".equals(account2.getAccountType())) {
+        if ("CD".equals(account1.getAccountType()) || "CD".equals(account2.getAccountType())) {
             return false;
         }
         return true;
