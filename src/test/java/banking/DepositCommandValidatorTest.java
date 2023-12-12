@@ -18,7 +18,7 @@ public class DepositCommandValidatorTest {
 		bank = new Bank();
 		depositCommandValidator = new DepositCommandValidator(bank);
 		checking = new Checkings(0.3, "12345678");
-		savings = new Savings(0.3, "12345678");
+		savings = new Savings(0.3, "00000000");
 		cd = new CertificateOfDeposit(0.3, 1000.0, "87654321");
 	}
 
@@ -39,35 +39,35 @@ public class DepositCommandValidatorTest {
 	@Test
 	void DepositBalanceOverOneThousandInSavings() {
 		bank.addAccount(savings);
-		boolean actual = depositCommandValidator.validate("Deposit 12345678 3000.0");
+		boolean actual = depositCommandValidator.validate("Deposit 00000000 3000.0");
 		assertFalse(actual);
 	}
 
 	@Test
 	void DepositBalanceUnderZeroInSavings() {
 		bank.addAccount(savings);
-		boolean actual = depositCommandValidator.validate("Deposit 12345678 -1.0");
+		boolean actual = depositCommandValidator.validate("Deposit 00000000 -1.0");
 		assertFalse(actual);
 	}
 
 	@Test
 	void DepositWithBalanceAsLettersInSavings() {
 		bank.addAccount(savings);
-		boolean actual = depositCommandValidator.validate("Deposit 12345678 abc");
+		boolean actual = depositCommandValidator.validate("Deposit 00000000 abc");
 		assertFalse(actual);
 	}
 
 	@Test
 	void DepositWithoutBalanceInSavings() {
 		bank.addAccount(savings);
-		boolean actual = depositCommandValidator.validate("Deposit 12345678");
+		boolean actual = depositCommandValidator.validate("Deposit 00000000");
 		assertFalse(actual);
 	}
 
 	@Test
 	void DepositBalanceAsLetterAndNumbersInSavings() {
 		bank.addAccount(savings);
-		boolean actual = depositCommandValidator.validate("Deposit 12345678 $50.0");
+		boolean actual = depositCommandValidator.validate("Deposit 00000000 $50.0");
 		assertFalse(actual);
 	}
 
@@ -81,7 +81,7 @@ public class DepositCommandValidatorTest {
 	@Test
 	void DepositWithoutFunctionInSavings() {
 		bank.addAccount(savings);
-		boolean actual = depositCommandValidator.validate("12345678 50.0");
+		boolean actual = depositCommandValidator.validate("00000000 50.0");
 		assertFalse(actual);
 	}
 
@@ -165,7 +165,7 @@ public class DepositCommandValidatorTest {
 	@Test
 	void ValidDepositIntoSavings() {
 		bank.addAccount(savings);
-		boolean actual = depositCommandValidator.validate("Deposit 12345678 50.0");
+		boolean actual = depositCommandValidator.validate("Deposit 00000000 50.0");
 		assertTrue(actual);
 	}
 
@@ -188,6 +188,34 @@ public class DepositCommandValidatorTest {
 		bank.addAccount(cd);
 		boolean actual = depositCommandValidator.validate("Deposit 87654321 50");
 		assertFalse(actual);
+	}
+
+	@Test
+	void deposit_into_checking_with_max() {
+		bank.addAccount(checking);
+		boolean actual = depositCommandValidator.validate("Deposit 12345678 1000.00");
+		assertTrue(actual);
+	}
+
+	@Test
+	void deposit_into_checking_with_min() {
+		bank.addAccount(checking);
+		boolean actual = depositCommandValidator.validate("Deposit 12345678 0.0");
+		assertTrue(actual);
+	}
+
+	@Test
+	void deposit_into_savings_with_max() {
+		bank.addAccount(savings);
+		boolean actual = depositCommandValidator.validate("Deposit 00000000 2500.00");
+		assertTrue(actual);
+	}
+
+	@Test
+	void deposit_into_savings_with_min() {
+		bank.addAccount(savings);
+		boolean actual = depositCommandValidator.validate("Deposit 00000000 0.0");
+		assertTrue(actual);
 	}
 
 }
