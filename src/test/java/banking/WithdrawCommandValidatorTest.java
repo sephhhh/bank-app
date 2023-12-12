@@ -114,6 +114,33 @@ public class WithdrawCommandValidatorTest {
         assertFalse(actual);
     }
 
+    @Test
+    void invalid_cd_withdraw_within_first_12_months() {
+        Account cd = new CertificateOfDeposit(0.6,1000,"12345678");
+        bank.addAccount(cd);
+        cd.setMonthsPassed(5);
+        boolean actual = withdrawCommandValidator.validate("Withdraw " + "12345678" + " 500");
+        assertFalse(actual);
+    }
+
+    @Test
+    void valid_cd_withdraw_after_12_months() {
+        Account cd = new CertificateOfDeposit(0.6,1000,"12345678");
+        cd.setMonthsPassed(15);
+        bank.addAccount(cd);
+        boolean actual = withdrawCommandValidator.validate("Withdraw " + cd.getId() + " 500");
+        assertTrue(actual);
+    }
+
+    @Test
+    void invalid_cd_withdraw_within_first_12_months_with_extra_arguments() {
+        Account cd = new CertificateOfDeposit(0.6,1000,"12345678");
+        cd.setMonthsPassed(8);
+        bank.addAccount(cd);
+        boolean actual = withdrawCommandValidator.validate("Withdraw " + cd.getId() + " 500 43");
+        assertFalse(actual);
+    }
+
 
 
 

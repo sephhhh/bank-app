@@ -83,4 +83,12 @@ public abstract class Account {
 		balance = amount;
 	}
 
+	public void setMonthsPassed(int amount) {
+		monthsPassed = amount;
+	}
+
+	public int getMonthsPassed() {
+		return monthsPassed;
+	}
+
 }
