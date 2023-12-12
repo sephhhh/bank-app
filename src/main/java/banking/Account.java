@@ -1,5 +1,6 @@
 package banking;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +48,12 @@ public abstract class Account {
 		interest = balance * apr;
 		balance += interest;
 		numTimesWithdrew = 0;
-		return balance;
+		return Double.parseDouble(formatBalance(balance));
+	}
+
+	private static String formatBalance(double balance) {
+		DecimalFormat df = new DecimalFormat("#.00");
+		return df.format(balance);
 	}
 
 	public void depositMoney(double amount) {

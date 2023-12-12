@@ -91,4 +91,42 @@ public class CommandProcessorTest {
 		assertEquals(500.0, account1.getBalance());
 		assertEquals(500.0, account2.getBalance());
 	}
+
+	@Test
+	void passTime_no_accounts() {
+		commandProcessor.passTime("Pass 5");
+	}
+
+	@Test
+	void passTime_close_zero_balance_accounts() {
+		Savings zeroBalanceSavings = new Savings(0.6, "12345678");
+		zeroBalanceSavings.depositMoney(0.0);
+		bank.addAccount(zeroBalanceSavings);
+
+		commandProcessor.passTime("Pass 5");
+
+		assertEquals(0, bank.getAllAccounts().size());
+	}
+
+	@Test
+	void passTime_deduct_money_and_close_accounts() {
+		Savings lowBalanceSavings = new Savings(0.6, "12345678");
+		lowBalanceSavings.depositMoney(50.0);
+		lowBalanceSavings.withdrawMoney(50.0);
+		bank.addAccount(lowBalanceSavings);
+
+		commandProcessor.passTime("Pass 5");
+
+		assertEquals(0, bank.getAllAccounts().size());
+	}
+
+	@Test
+	void passTime_cd_accounts_calculate_apr() {
+		CertificateOfDeposit cdAccount = new CertificateOfDeposit(0.6, 1000, "98765432");
+		bank.addAccount(cdAccount);
+
+		commandProcessor.passTime("Pass 4");
+		assertEquals(1000.50, cdAccount.getBalance());
+	}
+
 }
