@@ -149,4 +149,13 @@ public class CommandProcessorTest {
 		assertEquals(74.04, savings.getBalance());
 	}
 
+	@Test
+	void passTime_if_cd_is_less_than_100() {
+		CertificateOfDeposit cd = new CertificateOfDeposit(0.6, 99, "12345678");
+		bank.addAccount(cd);
+		commandProcessor.passTime("Pass 1");
+
+		assertEquals(74.04, cd.getBalance());
+	}
+
 }
