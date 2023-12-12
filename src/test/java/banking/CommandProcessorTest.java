@@ -1,6 +1,7 @@
 package banking;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -44,4 +45,50 @@ public class CommandProcessorTest {
 		assertEquals(500, bank.getAccountById("12345678").getBalance());
 	}
 
+
+	@Test
+	void deposit_into_account() {
+		Savings savings = new Savings(0.6,"12345678");
+		bank.addAccount(savings);
+		commandProcessor.deposit("Deposit 12345678 500.0");
+
+		assertEquals(500.0, savings.getBalance());
+	}
+
+	@Test
+	void withdraw_from_account() {
+		Checkings checking = new Checkings(0.6, "87654321");
+		checking.depositMoney(1000.0);
+		bank.addAccount(checking);
+
+		commandProcessor.withdraw("Withdraw 87654321 300.0");
+
+		assertEquals(700.0, checking.getBalance());
+	}
+
+	@Test
+	void pass_time() {
+		Savings savings = new Savings(0.6, "12345678");
+		savings.depositMoney(1000.0);
+		bank.addAccount(savings);
+
+		commandProcessor.passTime("Pass 1");
+
+		assertEquals(1000.5, savings.getBalance());
+	}
+
+	@Test
+	void transfer_between_accounts() {
+		Savings account1 = new Savings(0.6, "12345678");
+		account1.depositMoney(1000.0);
+		bank.addAccount(account1);
+
+		Checkings account2 = new Checkings(0.6,"87654321");
+		bank.addAccount(account2);
+
+		commandProcessor.transfer("Transfer 12345678 87654321 500.0");
+
+		assertEquals(500.0, account1.getBalance());
+		assertEquals(500.0, account2.getBalance());
+	}
 }
